@@ -1,0 +1,996 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Gordita-Regular';
+    src: url('Gordita/Gordita-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gordita-Bold';
+    src: url('Gordita/Gordita-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gordita-Black';
+    src: url('Gordita/Gordita-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gordita-BlackItalic';
+    src: url('Gordita/Gordita-BlackItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gordita-Light';
+    src: url('Gordita/Gordita-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gordita-Medium';
+    src: url('Gordita/Gordita-Medium.ttf') format('truetype');
+}
+
+
+html,
+body {
+    /* scroll-behavior: smooth; */
+    /* width: 100%;
+    overflow-x: hidden;
+    z-index: 100; */
+    font-family: 'Gordita-Regular', sans-serif;
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.inicio {
+    width: 100%;
+    height: 100vh;
+    padding: 4% 16%;
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    background-image: url(recursos/fondo.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.header-h {
+    text-align: center;
+    padding: 4% 16%;
+    z-index: 10;
+    position: absolute;
+}
+
+.nav-h {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-bottom: 2%;
+}
+
+.a-h {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.3rem;
+    display: flex;
+}
+
+.a-h:hover {
+    background-color: #00b2e3;
+    border-radius: 50px;
+    transform: scale(1.05);
+    transition: transform 0.1s;
+}
+
+.a-h:active {
+    transform: scale(0.90);
+    transition: transform 0.1s;
+}
+
+/* Dropdown contenedor */
+.dropdown {
+    position: relative;
+    /* 👈 Necesario */
+    display: inline-block;
+}
+
+/* Contenido oculto */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    flex-direction: column;
+}
+
+/* Links dentro del dropdown */
+.dropdown-content a {
+    padding: 0.15rem 0.5rem;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* inicio */
+.divInicio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+
+.Textos {
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.comunicacionSpan {
+    font-family: 'Gordita-BlackItalic', sans-serif;
+}
+
+.imagen {
+    width: 18rem;
+}
+
+/* INICIO */
+.inicio-contenedor {
+    /* width: 100%; */
+    max-width: 1180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 0 6%; */
+    box-sizing: border-box;
+}
+
+.inicio-textos {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+}
+
+.h1-titulo {
+    font-size: 3.81rem;
+}
+
+.p-texto {
+    font-size: 1.3rem;
+    text-align: justify;
+}
+
+.comunicacionSpan {
+    font-family: 'Gordita-BlackItalic', sans-serif;
+}
+
+.btn-sucursal {
+    background: white;
+    color: #00a9d6;
+    font-family: 'Gordita-Bold', sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 12px;
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-sucursal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.inicio-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+}
+
+.imagen-telefono {
+    width: 300px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.35));
+    /* animation: telefonoFlotando 4s ease-in-out infinite; */
+}
+
+@keyframes telefonoFlotando {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* valores */
+.valores {
+    width: 100%;
+    height: 100vh;
+    background-color: #f4f4f4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 12%;
+    box-sizing: border-box;
+}
+
+.divValores {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+
+.divImagen {
+    width: 430px;
+    flex-shrink: 0;
+}
+
+.imgValores {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.divContenido {
+    width: 460px;
+}
+
+.h1-valores {
+    font-size: 4rem;
+    color: #00b2e2;
+    font-family: 'Gordita-Black', sans-serif;
+    margin: 0 0 25px 0;
+    line-height: 1;
+}
+
+.texto-valores {
+    font-size: 1.05rem;
+    font-family: 'Gordita-Regular', sans-serif;
+    color: #1f1f3f;
+    line-height: 1.25;
+    margin: 0 0 42px 8px;
+}
+
+.tarjeta-valores {
+    width: 440px;
+    min-height: 115px;
+    background: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 28px;
+    box-sizing: border-box;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.icono-valores {
+    width: 75px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.icono-valores img {
+    width: 48px;
+    display: block;
+    margin: 0 auto 4px auto;
+    opacity: 0.65;
+}
+
+.icono-valores span {
+    font-family: 'Gordita-Bold', sans-serif;
+    font-size: 1rem;
+    color: #9b9b9b;
+}
+
+.lista-valores {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    column-gap: 10px;
+    row-gap: 16px;
+
+    font-family: 'Gordita-Regular', sans-serif;
+    font-size: 0.9rem;
+    color: #1f1f3f;
+}
+
+.lista-valores span::before {
+    content: "• ";
+    color: black;
+}
+
+/* mapa */
+.Mapa {
+    width: 100%;
+    height: 90vh;
+    padding: 4% 16%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    position: relative;
+    transition: transform 0.2s ease-out;
+
+}
+
+.divmapa {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.imgMapa {
+    width: 100%;
+    height: auto;
+    padding-right: 6rem;
+    padding-top: 3rem;
+}
+
+.divespacio {
+    width: 15rem;
+}
+
+.divNumeros {
+    position: absolute;
+    top: 10%;
+    left: 58%;
+}
+
+.divEstados,
+.divTiendas {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 5%;
+}
+
+.h1-numero {
+    font-size: 5rem;
+    color: #00b2e2;
+    font-family: 'Gordita-Bold', sans-serif;
+    margin: 0;
+    padding: 0.7rem 0;
+}
+
+.p-numero {
+    font-size: 1.6rem;
+    text-align: left;
+    font-family: 'Gordita-Medium', sans-serif;
+    margin: 0;
+    color: #3f3f3f;
+}
+
+/* FORTALEZA */
+
+.Fortaleza {
+    width: 100%;
+    height: 100vh;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 7rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sombra inferior suave */
+.Fortaleza::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.13),transparent);
+    pointer-events: none;
+}
+
+.divFortaleza {
+    width: 100%;
+    max-width: 950px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divFortalezaTitulo {
+    margin-bottom: 95px;
+}
+
+.h1-Fortaleza {
+    font-family: 'Gordita-Black', sans-serif;
+    font-size: 2.7rem;
+    color: #000;
+    margin: 0;
+    text-align: center;
+}
+
+.h1-Fortaleza span {
+    color: #00b2e2;
+}
+
+.divFortalezaContenido {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 260px;
+}
+
+.divFortalezaitem {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.imgFortaleza {
+    width: 75px;
+    height: auto;
+
+    display: block;
+    margin-bottom: 32px;
+}
+
+.p-Fortaleza {
+    font-family: 'Gordita-Regular', sans-serif;
+    font-size: 1.65rem;
+    color: #3f3f3f;
+
+    margin: 0;
+    line-height: 1.2;
+}
+
+.p-Fortaleza span {
+    font-family: 'Gordita-Black', sans-serif;
+    color: #333;
+}
+
+.p-Fortaleza strong {
+    font-family: 'Gordita-Bold', sans-serif;
+    color: #333;
+}
+
+/* ÚNETE A NUESTRO EQUIPO */
+.uneteNuestro {
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    transition: transform 0.2s ease-out;
+    background-color: #00b2e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden; */
+}
+.uneteNuestro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.13),transparent);
+    pointer-events: none;
+}
+.uneteNuestro::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 45px;
+
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.13), transparent);
+
+    pointer-events: none;
+}
+.unete-card {
+    width: 68%;
+    min-height: 300px;
+    background-color: #c8fbff;
+    border-radius: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 45px 30px;
+    box-sizing: border-box;
+}
+.unete-logo {
+    margin-bottom: 35px;
+}
+.unete-logo img {
+    width: 350px;
+    height: auto;
+    display: block;
+}
+.btn-unete {
+    background-color: #079bd0;
+    color: white;
+    font-family: 'Gordita-Bold', sans-serif;
+    font-size: 1.45rem;
+    line-height: 1.25;
+    text-align: center;
+    text-decoration: none;
+    padding: 16px 55px;
+    border-radius: 40px;
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-unete:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.btn-unete:active {
+    transform: scale(0.96);
+}
+
+/* contacto */
+.contacto {
+    background-color: #fff;
+    z-index: 2;
+    position: relative;
+    transform: translateY(100vh);
+    height: 100vh;
+    transition: transform 0.6s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contacto.slide-up {
+    transform: translateY(0);
+}
+
+.footer {
+    color: black;
+}
+
+.footer-section {
+    display: inline-block;
+    vertical-align: top;
+    width: 60%;
+}
+
+.footer-section h3 {
+    font-size: 1.1rem;
+    font-weight: 'Gordita-Bold', sans-serif;
+    margin-top: 10px;
+}
+
+.footer-section a,
+.footer-section p {
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.footer-bottom a {
+    color: black;
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+.iconoSocial {
+    width: clamp(30px, 4vw, 40px);
+    height: clamp(30px, 4vw, 40px);
+    margin-right: 10px;
+}
+
+.td-social {
+    padding: 0;
+    margin-right: 10px;
+}
+
+.a-coreo {
+    font-family: 'Gordita-Bold', sans-serif;
+}
+
+.td-social:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    background-color: transparent;
+}
+
+.td-social:active {
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.logoBlanco {
+    width: 40px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.logo-contact {
+    width: 30%;
+}
+
+.logo1 {
+    height: 50px;
+    margin-top: 30px;
+}
+
+/*promociones*/
+/* Sección de promociones */
+.promociones {
+    width: 100%;
+    height: 100vh;
+    background: #f4f4f4;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Franja azul superior */
+.franja-azul {
+    width: 100%;
+    height: 85px;
+    /* background: linear-gradient(90deg, #00a9d6, #00657d); */
+}
+
+/* Contenedor general del carrusel */
+.carrusel-promos {
+    height: calc(100vh - 85px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Área donde se mueven las tarjetas */
+.carousel-stage {
+    width: 1200px;
+    height: 500px;
+    position: relative;
+}
+
+/* Tarjeta base */
+.promo-card {
+    width: 360px;
+    height: 360px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    border-radius: 28px;
+    overflow: hidden;
+
+    opacity: 0;
+    z-index: 1;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+    transform: translate(-50%, -50%) scale(0.7);
+    transition: all 0.8s ease;
+}
+
+/* Imagen dentro de la tarjeta */
+.promo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Tarjeta del centro */
+.promo-card.is-center {
+    width: 445px;
+    height: 445px;
+
+    opacity: 1;
+    z-index: 5;
+
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Tarjeta izquierda */
+.promo-card.is-left {
+    opacity: 1;
+    z-index: 3;
+
+    transform: translate(calc(-50% - 420px), -50%) rotate(-7deg) scale(0.88);
+}
+
+/* Tarjeta derecha */
+.promo-card.is-right {
+    opacity: 1;
+    z-index: 3;
+
+    transform: translate(calc(-50% + 420px), -50%) rotate(7deg) scale(0.88);
+}
+
+/* Las demás tarjetas quedan escondidas */
+.promo-card.is-hidden {
+    opacity: 0;
+    z-index: 1;
+
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+/* Sombrilla gris abajo como en la imagen */
+.promociones::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.18), transparent);
+    pointer-events: none;
+}
+
+/* NUESTROS SERVICIOS */
+.NuestrosServicios {
+    width: 100%;
+    height: 110vh;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sombra inferior como en la imagen */
+.NuestrosServicios::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent);
+    pointer-events: none;
+}
+
+.servicios-contenedor {
+    width: 100%;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.95);
+}
+
+.titulo-servicios {
+    font-family: 'Gordita-Black', sans-serif;
+    font-size: 3.8rem;
+    color: #00b2e2;
+    margin: 0 0 65px 0;
+    text-align: center;
+    /* letter-spacing: 1px; */
+}
+
+.lista-servicios {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.servicio-card {
+    width: 660px;
+    min-height: 110px;
+    background-color: #00b2e2;
+    color: white;
+    border-radius: 28px;
+    padding: 32px 40px;
+    box-sizing: border-box;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.38);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.servicio-card h2 {
+    font-family: 'Gordita-Bold', sans-serif;
+    font-size: 1.9rem;
+    margin: 0 0 4px 0;
+    line-height: 1.1;
+}
+
+.servicio-card p {
+    font-family: 'Gordita-Light', sans-serif;
+    font-size: 1.4rem;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* PUNTOS DE VENTA */
+.PuntosdeVentas {
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+
+}
+.PuntosdeVentas::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.13), transparent);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.separador-2 {
+    width: 100%;
+}
+
+.container1 {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h1-t3 {
+    font-size: 2rem;
+    font-family: 'Gordita-Black', sans-serif;
+    margin: 0 0 95px 0;
+    color: #000;
+    text-align: center;
+}
+
+.highlight {
+    color: #00b2e2;
+    font-family: 'Gordita-Black', sans-serif;
+}
+
+/* Galería */
+.galeria {
+    position: relative;
+    width: 100%;
+    height: 430px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+/* Cada sucursal */
+.PuntosdeVentas .item1 {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition:transform 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
+    will-change: transform, opacity;
+}
+
+/* Tarjeta de imagen */
+.PuntosdeVentas .card {
+    width: 220px;
+    height: 260px;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+/* Imagen */
+.PuntosdeVentas .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 24px;
+}
+
+/* Texto */
+.PuntosdeVentas .item1 h4 {
+    font-family: 'Gordita-Bold', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    margin: 18px 0 3px 0;
+    text-align: center;
+}
+
+.PuntosdeVentas .item1 p {
+    font-family: 'Gordita-Light', sans-serif;
+    font-size: 0.95rem;
+    color: #777;
+    margin: 0;
+    text-align: center;
+}
+
+.seccion-sombra {
+    position: relative;
+    overflow: hidden;
+}
+
+.seccion-sombra::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.12),transparent);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.seccion-sombra::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.12),transparent);
+    pointer-events: none;
+    z-index: 5;
+}
