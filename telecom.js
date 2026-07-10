@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { img: "recursos 2/sucursales/Andares gdl.jpg", nombre: "Andares", ciudad: "Guadalajara, Jalisco" },
         { img: "recursos 2/sucursales/barranca.jpeg", nombre: "Barranca", ciudad: "Guadalajara, Jalisco" },
         { img: "recursos 2/sucursales/Belenes.jpeg", nombre: "Belenes", ciudad: "Zapopan, Jalisco" },
-        { img: "recursos 2/sucursales/La perla zapopan.jpg", nombre: "La Perla", ciudad: "Zapopan, Jalisco" },
+        { img: "recursos 2/sucursales/La Perla zapopan.jpg", nombre: "La Perla", ciudad: "Zapopan, Jalisco" },
         { img: "recursos 2/sucursales/PDV ALEGRA zapopan.jpeg", nombre: "PDV Alegra", ciudad: "Zapopan, Jalisco" },
         { img: "recursos 2/sucursales/PDV ALEIRA zapopan.jpeg", nombre: "PDV ALEIRA", ciudad: "Zapopan, Jalisco" },
         { img: "recursos 2/sucursales/PDV AMERICAS MERIDA.jpeg", nombre: "PDV Americas", ciudad: "Mérida, Yucatán" },
