@@ -18,49 +18,6 @@ const observer = new IntersectionObserver((entries) => {
 }, {
     threshold: 0.3
 });
-
-// tarjetas.forEach(tarjeta => observer.observe(tarjeta));
-// // Cambio de icono 
-// const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-// const links = document.querySelectorAll('link[rel="icon"]');
-
-// const updateIcon = () => {
-//     const isDark = mediaQuery.matches;
-//     const dataKey = isDark ? 'hrefDark' : 'hrefLight';
-
-//     Array.prototype.slice.call(links).forEach(link => {
-//         link.href = link.dataset[dataKey];
-//     });
-// };
-
-// mediaQuery.addEventListener('change', updateIcon);
-// updateIcon();
-
-//   contacto
-// Observador que activa/desactiva el efecto
-// Seleccionamos la sección compromiso
-// const Mapa = document.querySelector('');
-
-// let active = false;
-// const observer1 = new IntersectionObserver(entries => {
-//     entries.forEach(entry => {
-//         active = entry.isIntersecting;
-//     });
-// }, { threshold: 0.1 });
-
-// observer1.observe(Mapa);
-
-// const scaleInicial = 0.9;
-
-// window.addEventListener('scroll', () => {
-//     if (!active) return;
-
-//     const scrollY = window.scrollY;
-//     const start = Mapa.offsetTop;
-
-//     const scaleMapa = scaleInicial - (scrollY - start) / 4000;
-//     Mapa.style.transform = `scale(${scaleMapa})`;
-// });
 const cardsPromo = document.querySelectorAll(".promo-card");
 
 let promoActual = 0;
@@ -89,7 +46,7 @@ function moverCarruselPromos() {
 
 moverCarruselPromos();
 
-setInterval(() => {
+function avanzarPromos() {
     promoActual++;
 
     if (promoActual >= cardsPromo.length) {
@@ -97,7 +54,25 @@ setInterval(() => {
     }
 
     moverCarruselPromos();
-}, 3000);
+}
+
+let intervaloPromos = setInterval(avanzarPromos, 3000);
+
+const stagePromos = document.querySelector(".carousel-stage");
+
+if (stagePromos) {
+    stagePromos.addEventListener("mouseenter", () => {
+        clearInterval(intervaloPromos);
+    });
+
+    stagePromos.addEventListener("mouseleave", () => {
+        intervaloPromos = setInterval(avanzarPromos, 3000);
+    });
+
+    stagePromos.addEventListener("click", () => {
+        avanzarPromos();
+    });
+}
 
 
 //carrusel de servicios
@@ -219,7 +194,6 @@ function siguienteSucursal() {
     const slotQueSale = slots[0];
     const nuevoSlot = crearNuevaSucursalDerecha();
 
-    // Forzamos que el navegador registre primero la posición escondida
     nuevoSlot.offsetHeight;
 
     // 1. La primera sale hacia la izquierda
@@ -255,12 +229,10 @@ if (slots.length > 0) {
     iniciarCarruselSucursal();
     setInterval(siguienteSucursal, 3800);
 }
-
 });
 
 //   contacto
-// Observador que activa/desactiva el efecto
-// Seleccionamos la sección compromiso
+
 const uneteNuestro = document.querySelector('.uneteNuestro');
 
 let active = false;
@@ -272,14 +244,221 @@ const observer1 = new IntersectionObserver(entries => {
 
 observer1.observe(uneteNuestro);
 
-const scaleInicial = 1.2; // 👈 valor inicial de escala (ajústalo a gusto)
+const scaleInicial = 1.2; 
 
 window.addEventListener('scroll', () => {
-    if (!active) return; // solo aplica si la sección está visible
+    if (!active) return; 
 
     const scrollY = window.scrollY;
     const start = uneteNuestro.offsetTop;
 
     const scaleUneteNuestro = scaleInicial - (scrollY - start) / 4000;
     uneteNuestro.style.transform = `scale(${scaleUneteNuestro})`;
+});
+
+// =============================
+// ANIMACIONES AL HACER SCROLL
+// =============================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const elementosAnimados = [
+        // Inicio
+        { selector: ".inicio-textos", tipo: "from-left", delay: 0 },
+        { selector: ".inicio-imagen", tipo: "from-right", delay: 0.15 },
+
+        // Promociones
+        { selector: ".carousel-stage", tipo: "zoom-in", delay: 0 },
+
+        // Conócenos
+        { selector: ".divImagen", tipo: "from-left", delay: 0 },
+        { selector: ".divContenido", tipo: "from-right", delay: 0.15 },
+        { selector: ".tarjeta-valores", tipo: "zoom-in", delay: 0.25 },
+
+        // Nuestros servicios
+        { selector: ".titulo-servicios", tipo: "zoom-in", delay: 0 },
+        { selector: ".servicio-card", tipo: "from-left", delay: 0.1, cascada: true },
+
+        // Puntos de venta
+        { selector: ".h1-t3", tipo: "zoom-in", delay: 0 },
+        { selector: ".galeria", tipo: "zoom-in", delay: 0.15 },
+
+        // Mapa
+        { selector: ".divimagenmapa", tipo: "from-left", delay: 0 },
+        { selector: ".divNumeros", tipo: "from-right", delay: 0.15 },
+
+        // Fortaleza
+        { selector: ".h1-Fortaleza", tipo: "zoom-in", delay: 0 },
+        { selector: ".divFortalezaitem", tipo: "zoom-in", delay: 0.15, cascada: true },
+
+        // Únete
+        { selector: ".unete-card", tipo: "zoom-in", delay: 0 },
+
+        // Contacto
+        { selector: ".footer-section", tipo: "from-left", delay: 0.1, cascada: true }
+    ];
+
+    elementosAnimados.forEach(config => {
+        const elementos = document.querySelectorAll(config.selector);
+
+        elementos.forEach((elemento, index) => {
+            elemento.classList.add("reveal");
+
+            if (config.tipo) {
+                elemento.classList.add(config.tipo);
+            }
+
+            const delayFinal = config.delay + (config.cascada ? index * 0.15 : 0);
+            elemento.style.setProperty("--delay", `${delayFinal}s`);
+        });
+    });
+
+    const observerReveal = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+
+                // Se anima una vez y ya no se vuelve a ocultar
+                observerReveal.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.22,
+        rootMargin: "0px 0px -70px 0px"
+    });
+
+    document.querySelectorAll(".reveal").forEach(elemento => {
+        observerReveal.observe(elemento);
+    });
+
+});
+// =============================
+// INTERACTIVIDAD EXTRA
+// =============================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // -----------------------------
+    // 1. Botones magnéticos
+    // -----------------------------
+    const botonesMagneticos = document.querySelectorAll(".btn-sucursal, .btn-unete");
+
+    botonesMagneticos.forEach(boton => {
+        boton.addEventListener("mousemove", (e) => {
+            const rect = boton.getBoundingClientRect();
+
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            boton.style.transform = `translate(${x * 0.12}px, ${y * 0.18}px)`;
+        });
+
+        boton.addEventListener("mouseleave", () => {
+            boton.style.transform = "translate(0, 0)";
+        });
+    });
+
+
+    // -----------------------------
+    // 2. Tilt suave en tarjetas
+    // -----------------------------
+    function activarTilt(selector) {
+        const elementos = document.querySelectorAll(selector);
+
+        elementos.forEach(elemento => {
+            elemento.classList.add("interactivo");
+
+            elemento.addEventListener("mousemove", (e) => {
+                const rect = elemento.getBoundingClientRect();
+
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centroX = rect.width / 2;
+                const centroY = rect.height / 2;
+
+                const rotacionX = ((y - centroY) / centroY) * -4;
+                const rotacionY = ((x - centroX) / centroX) * 4;
+
+                elemento.style.transform = `
+                    perspective(900px)
+                    rotateX(${rotacionX}deg)
+                    rotateY(${rotacionY}deg)
+                    translateY(-6px)
+                `;
+            });
+
+            elemento.addEventListener("mouseleave", () => {
+                elemento.style.transform = "";
+            });
+        });
+    }
+
+    activarTilt(".servicio-card");
+    activarTilt(".tarjeta-valores");
+    activarTilt(".unete-card");
+    activarTilt(".PuntosdeVentas .card");
+
+
+    // -----------------------------
+    // 3. Números que cuentan al aparecer
+    // -----------------------------
+    function animarNumero(elemento, numeroFinal, duracion = 1300) {
+        let inicio = null;
+
+        elemento.classList.add("contando");
+
+        function animar(timestamp) {
+            if (!inicio) inicio = timestamp;
+
+            const progreso = Math.min((timestamp - inicio) / duracion, 1);
+            const valorActual = Math.floor(progreso * numeroFinal);
+
+            elemento.textContent = valorActual;
+
+            if (progreso < 1) {
+                requestAnimationFrame(animar);
+            } else {
+                elemento.textContent = numeroFinal;
+                elemento.classList.remove("contando");
+            }
+        }
+
+        requestAnimationFrame(animar);
+    }
+
+    const numeros = [
+        { elemento: document.querySelector(".divEstados .h1-numero"), valor: 10 },
+        { elemento: document.querySelector(".divTiendas .h1-numero"), valor: 43 },
+        { elemento: document.querySelectorAll(".p-Fortaleza span")[0], valor: 162 },
+        { elemento: document.querySelectorAll(".p-Fortaleza span")[1], valor: 43 }
+    ];
+
+    numeros.forEach(item => {
+        if (item.elemento) {
+            item.elemento.classList.add("numero-animado");
+        }
+    });
+
+    const observerNumeros = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const item = numeros.find(n => n.elemento === entry.target);
+
+                if (item) {
+                    animarNumero(item.elemento, item.valor);
+                    observerNumeros.unobserve(entry.target);
+                }
+            }
+        });
+    }, {
+        threshold: 0.4
+    });
+
+    numeros.forEach(item => {
+        if (item.elemento) {
+            observerNumeros.observe(item.elemento);
+        }
+    });
+
 });
